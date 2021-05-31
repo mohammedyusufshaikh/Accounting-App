@@ -7,4 +7,3 @@ Accounting App
 
 MIT
 =======
-# Accounting-App
