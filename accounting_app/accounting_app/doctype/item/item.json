@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "field:item_name",
+ "creation": "2021-04-29 12:59:10.743895",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "standard_selling_rate",
+  "standard_purchase_rate",
+  "brand",
+  "item_image",
+  "item_description",
+  "unit_of_measurement",
+  "company",
+  "route"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "standard_selling_rate",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Standard Selling Rate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Brand",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_image",
+   "fieldtype": "Attach Image",
+   "label": "Item Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Data",
+   "label": "Item Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_of_measurement",
+   "fieldtype": "Link",
+   "label": "Unit of Measurement",
+   "options": "Unit of Measurement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "standard_purchase_rate",
+   "fieldtype": "Int",
+   "label": "Standard Purchase Rate",
+   "reqd": 1
+  }
+ ],
+ "has_web_view": 1,
+ "image_field": "item_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-05-19 12:46:54.342930",
+ "modified_by": "Administrator",
+ "module": "Accounting App",
+ "name": "Item",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "route": "items",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

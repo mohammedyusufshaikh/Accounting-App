@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "creation": "2021-05-17 14:04:11.426586",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date_of_creation",
+  "supplier",
+  "reqd_by_date",
+  "item",
+  "total_qty",
+  "total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "date_of_creation",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Creation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Party",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reqd_by_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Reqd By Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "label": "Total Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Purchase_Order_Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Quantity",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-05-19 14:29:33.950076",
+ "modified_by": "Administrator",
+ "module": "Accounting App",
+ "name": "Purchase Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,27 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="py-20 row">
+    <div class="col-sm-2">
+        <img src="{{ item_image }}" alt="{{ title }}">
+    </div>
+    <div class="col">
+        <h3>{{ title }}</h3>
+        <p>By {{ brand }}</p>
+        <!-- <div>
+            {%- if status == 'Available' -%}
+            <span class="badge badge-success">Available</span>
+            {%- elif status == 'Issued' -%}
+            <span class="badge badge-primary">Issued</span>
+            {%- endif -%}
+        </div> -->
+        <div class="mt-4">
+            <div>Price <strong>{{standard_selling_rate}}</strong></div>
+        </div>
+        <p>{{ item_description }}</p>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- this is a sample default web page template -->

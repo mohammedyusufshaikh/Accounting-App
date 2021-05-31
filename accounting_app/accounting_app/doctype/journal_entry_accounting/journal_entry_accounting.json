@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "creation": "2021-05-09 15:58:14.970754",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "account",
+  "party",
+  "debit",
+  "credit",
+  "description_of_transaction"
+ ],
+ "fields": [
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "Party",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "debit",
+   "fieldtype": "Int",
+   "label": "Debit",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "credit",
+   "fieldtype": "Int",
+   "label": "Credit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description_of_transaction",
+   "fieldtype": "Data",
+   "label": "Description of Transaction"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-05-31 17:12:24.349500",
+ "modified_by": "Administrator",
+ "module": "Accounting App",
+ "name": "Journal Entry Accounting",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
