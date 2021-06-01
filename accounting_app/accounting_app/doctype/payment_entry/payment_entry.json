@@ -7,13 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "posting_date",
+  "column_break_2",
   "payment_type",
-  "party_type",
-  "party",
   "company",
+  "section_break_4",
+  "party_type",
   "account_paid_from",
-  "account_paid_to",
   "paid_amount",
+  "column_break_8",
+  "party",
+  "account_paid_to",
   "amended_from"
  ],
  "fields": [
@@ -82,12 +85,24 @@
    "fieldtype": "Data",
    "label": "Paid Amount",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-05-25 14:51:25.022044",
+ "modified": "2021-06-01 12:36:51.114207",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Payment Entry",

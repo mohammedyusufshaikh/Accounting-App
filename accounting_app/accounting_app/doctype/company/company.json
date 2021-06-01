@@ -8,16 +8,19 @@
  "field_order": [
   "company__name",
   "default_currency",
+  "column_break_3",
   "abbr",
+  "parent_company",
+  "is_group",
   "lft",
   "rgt",
-  "is_group",
   "old_parent",
-  "parent_company",
+  "default_accounts_section",
   "default_bank_account",
   "default_cash_account",
   "default_receivable_account",
   "default_payable_account",
+  "column_break_14",
   "default_income_account",
   "default_cost_of_goods_sold_account",
   "default_inventory_account",
@@ -36,7 +39,7 @@
    "fieldname": "default_currency",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "default currency",
+   "label": "Default Currency",
    "options": "Currency",
    "reqd": 1
   },
@@ -44,7 +47,7 @@
    "fieldname": "abbr",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "abbr",
+   "label": "Abbrevation",
    "reqd": 1
   },
   {
@@ -72,6 +75,7 @@
   {
    "fieldname": "old_parent",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Old Parent",
    "options": "Company"
   },
@@ -128,12 +132,25 @@
    "fieldtype": "Link",
    "label": "Stock Received But Not Billed",
    "options": "Account"
+  },
+  {
+   "fieldname": "default_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Default Accounts"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-20 20:26:44.846894",
+ "modified": "2021-06-01 13:08:29.392234",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Company",

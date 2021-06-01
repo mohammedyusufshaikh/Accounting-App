@@ -7,8 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "party_name",
-  "party_type",
   "email_id",
+  "column_break_3",
+  "party_type",
   "contact"
  ],
  "fields": [
@@ -41,11 +42,15 @@
    "label": "Contact",
    "options": "Phone",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-03 11:26:23.166143",
+ "modified": "2021-06-01 13:09:52.701816",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Party",

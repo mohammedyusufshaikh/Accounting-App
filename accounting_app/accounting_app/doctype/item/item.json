@@ -9,14 +9,17 @@
  "engine": "InnoDB",
  "field_order": [
   "item_code",
-  "item_name",
-  "standard_selling_rate",
-  "standard_purchase_rate",
   "brand",
+  "column_break_5",
+  "item_name",
   "item_image",
+  "section_break_7",
+  "standard_purchase_rate",
   "item_description",
-  "unit_of_measurement",
   "company",
+  "column_break_10",
+  "standard_selling_rate",
+  "unit_of_measurement",
   "route"
  ],
  "fields": [
@@ -86,13 +89,25 @@
    "fieldtype": "Int",
    "label": "Standard Purchase Rate",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
   }
  ],
  "has_web_view": 1,
  "image_field": "item_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-19 12:46:54.342930",
+ "modified": "2021-06-01 13:16:44.241849",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Item",

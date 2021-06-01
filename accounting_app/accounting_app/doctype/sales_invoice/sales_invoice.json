@@ -7,13 +7,17 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
-  "company",
   "posting_date",
-  "payment_due_date",
   "debit_to",
+  "column_break_4",
+  "company",
+  "payment_due_date",
   "income_account",
+  "section_break_8",
   "item",
+  "section_break_10",
   "total_qty",
+  "column_break_12",
   "total_amount"
  ],
  "fields": [
@@ -74,11 +78,27 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-31 16:27:59.949846",
+ "modified": "2021-06-01 13:35:03.097922",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Sales Invoice",
@@ -100,5 +120,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "customer",
  "track_changes": 1
 }

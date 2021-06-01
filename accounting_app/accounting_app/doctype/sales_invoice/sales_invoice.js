@@ -26,6 +26,24 @@ frappe.ui.form.on('Sales Invoice', {
 				}
 			}
 		})
+
+		frm.set_query('debit_to',()=>{
+			return {
+				filters:{
+					is_group:0,
+					company:frm.doc.company
+				}
+			}
+		})
+
+		frm.set_query('income_to',()=>{
+			return {
+				filters:{
+					is_group:0,
+					company:frm.doc.company
+				}
+			}
+		})
 	}
 	,
 	company:function(frm){

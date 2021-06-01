@@ -27,6 +27,25 @@ frappe.ui.form.on('Purchase Invoice', {
 			}
 		})
 
+		frm.set_query('credit_to',()=>{
+			return {
+				filters:{
+					is_group:0,
+					company:frm.doc.company
+
+				}
+			}
+		})
+
+		frm.set_query('expense_account',()=>{
+			return {
+				filters:{
+					is_group:0,
+					company:frm.doc.company
+				}
+			}
+		})
+
 	}
 	,
 	company:function(frm){

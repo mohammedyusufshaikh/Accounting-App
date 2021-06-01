@@ -8,10 +8,14 @@
  "field_order": [
   "company",
   "party_type",
+  "column_break_5",
   "party",
   "posting_date",
+  "section_break_6",
   "accounting_entries",
+  "section_break_8",
   "total_debit",
+  "column_break_13",
   "total_credit",
   "difference",
   "amended_from"
@@ -74,12 +78,28 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-05-24 17:37:38.838596",
+ "modified": "2021-06-01 12:18:15.490969",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Journal Entry",
