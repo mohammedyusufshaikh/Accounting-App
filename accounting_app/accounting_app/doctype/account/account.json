@@ -7,16 +7,17 @@
  "engine": "InnoDB",
  "field_order": [
   "account_name",
-  "account_number",
-  "is_group",
   "account_type",
-  "sub_account_type",
   "currency",
+  "is_group",
+  "column_break_4",
+  "account_number",
+  "sub_account_type",
   "company",
+  "parent_account",
   "lft",
   "rgt",
-  "old_parent",
-  "parent_account"
+  "old_parent"
  ],
  "fields": [
   {
@@ -79,6 +80,7 @@
   {
    "fieldname": "old_parent",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Old Parent",
    "options": "Account"
   },
@@ -93,12 +95,16 @@
    "fieldtype": "Select",
    "label": "Sub Account Type",
    "options": "Receivable\nPayable"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-05-24 15:04:21.425577",
+ "modified": "2021-06-03 12:23:53.681649",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Account",
