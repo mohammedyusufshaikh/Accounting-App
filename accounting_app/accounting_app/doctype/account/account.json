@@ -51,8 +51,7 @@
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company",
-   "reqd": 1
+   "options": "Company"
   },
   {
    "fieldname": "lft",
@@ -104,7 +103,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2021-06-03 12:23:53.681649",
+ "modified": "2021-06-07 20:35:34.633488",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Account",
