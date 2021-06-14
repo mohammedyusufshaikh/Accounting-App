@@ -25,7 +25,6 @@ frappe.query_reports["Balance Sheet"] = {
 				frappe.query_report.toggle_filter_display('fiscal_year', filter_based_on === 'Date Range');
 				frappe.query_report.toggle_filter_display('from_date', filter_based_on === 'Fiscal Year');
 				frappe.query_report.toggle_filter_display('to_date', filter_based_on === 'Fiscal Year');
-
 				frappe.query_report.refresh();
 			}
 		},

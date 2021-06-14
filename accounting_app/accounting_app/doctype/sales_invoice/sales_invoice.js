@@ -60,22 +60,64 @@ frappe.ui.form.on('Sales Invoice', {
 
 
 frappe.ui.form.on('Sales_Invoice_Item', {
-	form_render(frm,cdt,cdn){		
-		// let row = frappe.get_doc(cdt,cdn);
-		// row['amount'] = row['qty'] * row['rate'];
-		// console.log(row);
-		// frappe.model.set_value(cdt,cdn,'amount',row['amount']+"");
-		// console.log(total);
-		var d = locals[cdt][cdn];
-		frappe.model.set_value(d.doctype,d.name,"amount",d.qty*d.rate);
-		var total_amount = 0;
-		var total_qty = 0;
-		frm.doc.item.forEach(function(d){
-			total_amount += d.amount;
-			total_qty += d.qty;
-		});
-		frm.set_value('total_amount',total_amount);
-		frm.set_value('total_qty',total_qty);
+	qty: function(frm,cdt,cdn){
+		calculate_total(frm, cdt, cdn);
+	},
+	rate: function(frm, cdt, cdn){
+		calculate_total(frm, cdt, cdn);
+	},
 
+	item: function(frm,cdt,cdn){
+		var child = locals[cdt][cdn];
+		if(child.item){
+			frappe.db.get_doc('Item', child.item)
+			.then( doc =>{
+				frappe.model.set_value(cdt, cdn, 'qty', 1.00)
+				frappe.model.set_value(cdt, cdn, 'rate', doc.standard_selling_rate)
+			})
+		}
 	}
+	
+	// form_render(frm,cdt,cdn){		
+	// 	// let row = frappe.get_doc(cdt,cdn);
+	// 	// row['amount'] = row['qty'] * row['rate'];
+	// 	// console.log(row);
+	// 	// frappe.model.set_value(cdt,cdn,'amount',row['amount']+"");
+	// 	// console.log(total);
+	// 	var d = locals[cdt][cdn];
+	// 	frappe.model.set_value(d.doctype,d.name,"amount",d.qty*d.rate);
+	// 	var total_amount = 0;
+	// 	var total_qty = 0;
+	// 	frm.doc.item.forEach(function(d){
+	// 		total_amount += d.amount;
+	// 		total_qty += d.qty;
+	// 	});
+	// 	frm.set_value('total_amount',total_amount);
+	// 	frm.set_value('total_qty',total_qty);
+	// }
+});
+
+
+var calculate_total = function(frm, cdt, cdn) {
+	var child = locals[cdt][cdn];
+	frappe.model.set_value(cdt, cdn, "amount", child.qty * child.rate);
+}
+
+frappe.ui.form.on("Sales Invoice Item", "qty", function(frm, cdt, cdn) {
+	var sales_item_details = frm.doc.items;
+	var total = 0
+	for(var i in sales_item_details) {
+		total = total + sales_item_details[i].qty
+	}
+	frm.set_value("total_qty", total_qty)
+});
+
+
+frappe.ui.form.on("Sales Invoice Item", "amount", function(frm, cdt, cdn) {
+	var sales_item_details = frm.doc.items;
+	var total = 0
+	for(var i in sales_item_details) {
+		total = total + sales_item_details[i].amount
+	}
+	frm.set_value("total_amount", total_amount)
 });

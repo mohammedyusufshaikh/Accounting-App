@@ -61,7 +61,7 @@
   },
   {
    "fieldname": "item_description",
-   "fieldtype": "Data",
+   "fieldtype": "Text Editor",
    "label": "Item Description",
    "reqd": 1
   },
@@ -107,7 +107,7 @@
  "image_field": "item_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-01 13:16:44.241849",
+ "modified": "2021-06-10 12:35:58.016263",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Item",

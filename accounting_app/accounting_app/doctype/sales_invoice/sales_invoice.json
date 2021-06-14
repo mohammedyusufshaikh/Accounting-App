@@ -18,7 +18,8 @@
   "section_break_10",
   "total_qty",
   "column_break_12",
-  "total_amount"
+  "total_amount",
+  "amended_from"
  ],
  "fields": [
   {
@@ -94,11 +95,21 @@
   {
    "fieldname": "column_break_12",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sales Invoice",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2021-06-01 13:35:03.097922",
+ "modified": "2021-06-14 14:16:43.631295",
  "modified_by": "Administrator",
  "module": "Accounting App",
  "name": "Sales Invoice",

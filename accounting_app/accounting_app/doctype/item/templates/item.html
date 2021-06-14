@@ -1,25 +1,31 @@
 {% extends "templates/web.html" %}
 
 {% block page_content %}
-<div class="py-20 row">
-    <div class="col-sm-2">
-        <img src="{{ item_image }}" alt="{{ title }}">
-    </div>
-    <div class="col">
-        <h3>{{ title }}</h3>
-        <p>By {{ brand }}</p>
-        <!-- <div>
-            {%- if status == 'Available' -%}
-            <span class="badge badge-success">Available</span>
-            {%- elif status == 'Issued' -%}
-            <span class="badge badge-primary">Issued</span>
-            {%- endif -%}
-        </div> -->
-        <div class="mt-4">
-            <div>Price <strong>{{standard_selling_rate}}</strong></div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h2>{{item_name}}</h2>
+            <img src="{{item_image}}">
         </div>
-        <p>{{ item_description }}</p>
+        <div class="col my-20">
+            <div>
+                <h5><b>About</b></h5>
+                 {{item_description}}
+             </div>
+        </div>
+        <div class="col my-20">
+            <div>
+                <h5><b>Price : </b>&#x20b9;{{standard_selling_rate}}</h5>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-success btn"><b>Add to Cart</b></button>
+            </div>
+                
+        </div>
     </div>
+
+
 </div>
 
 {% endblock %}

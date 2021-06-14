@@ -1,0 +1,54 @@
+<div>
+    {% if cart and items %}
+    <div class="row"><h1>Your Cart ,</h1></div>
+    <div class="row">
+       
+        <div class="col">
+            <div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for d in items%}
+                    <tr>
+                        <td>{{d.item}}</td>
+                        <td>{{d.qty}}</td>
+                        <td>{{d.amount}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+          
+               
+            </div>
+        </div>
+       
+
+        <!-- <div class="col">
+            <div style="margin: 10px;">
+                <button class="counter-sub" id="neg">-</button>
+                <input type="number" style="height: 35px;width: 50px;" class="counter-val" id="val">
+                <button class="counter-add" id="pos">+</button>
+            </div>
+        </div> -->
+
+        <div class="col text-center">
+           <img src="{{detail[0]['item_image']}}">
+        </div>
+        
+        <div class="col-2">
+            <button class="btn btn-danger delete-btn my-3" data-invoice-no="{{cart.name}}">Delete</button>
+            <button class="btn btn-primary buynow-btn my-3" data-invoice-no="{{cart.name}}">Buy Now</button>
+        </div>
+
+    
+    </div>
+    {% endif %}
+
+
+    {% if not cart and not items %}
+    <div><h2>Your Cart is Empty <a href="/catalog">Go Shop Something !</a></h2></div>
+    {% endif %}
+
+</div>

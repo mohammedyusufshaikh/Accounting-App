@@ -2,11 +2,7 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-
 import frappe
-from frappe.model.utils.user_settings import get
-from six import reraise
-# import frappe
 
 def execute(filters=None):
 	columns, data = [], []
@@ -19,21 +15,21 @@ def execute(filters=None):
 					WHERE
 						year=%s""",filters.fiscal_year, as_dict=1)[0]
 		date = [year.start_date, year.end_date]
-		period_key, period_label = "{}".format(filters.fiscal_year.replace(" ", "_").replace("-", "_")), filters.fiscal_year
+
+		period_label,period_key = filters.fiscal_year,filters.fiscal_year
+		
 	elif filters.filter_based_on == 'Date Range':
 		period_key, period_label = "Date Range", "Date Range"
 		date = [filters.from_date, filters.to_date]
 
 	asset = get_data(date, filters.company, 'Asset', 'Debit', period_key)
 	liability = get_data(date, filters.company, 'Liability', 'Credit', period_key)
-	# equity = get_data(date, filters.company, 'Equity', 'Credit', period_key)
+
 
 	data = []
 	data.extend(asset or [])
 	data.extend(liability or [])
 
-	for d in data:
-		print(d)
 	columns =[
 		{
 			"fieldname": "account",
@@ -51,7 +47,10 @@ def execute(filters=None):
 			"width": 150
 		},
 	]
-	return columns, data
+
+	asset, liability= get_profit_loss_total_amount(data, period_key)
+	chart = get_chart_data(asset, liability,period_key)
+	return columns, data,None,chart
 
 
 def get_data(date,company,account_type,dr_cr,period_key):
@@ -76,17 +75,18 @@ def get_data(date,company,account_type,dr_cr,period_key):
 		if balance:
 			info[period_key] = abs(balance)
 			temp.append(info)
-
 	
 	for t in temp:
 		for d in data:
 			if d["account"] == t["parent_account"]:
 				if d[period_key] == 0:
+					
 					d[period_key] = t[period_key]
 					temp.append(d)
 				else:
 					d[period_key] += t[period_key]
 	data = [d for d in data if d[period_key] != 0]
+
 	if data:
 		data.append({
 			"account": "Total " + account_type + " (" + dr_cr + ")",
@@ -103,7 +103,6 @@ def get_accounts(company,account_type):
 	ORDER BY lft""",(company,account_type),as_dict=1)
 
 def append(data,cnt,info,period_key):
-	print("INFO",info.name)
 	data.append({
 		"account":info.name,
 		"account_type":info.account_type,
@@ -115,11 +114,48 @@ def append(data,cnt,info,period_key):
 
 
 def get_account_balance(account, date):
-	return frappe.db.sql(""" SELECT 
-					sum(debit_amount) - sum(credit_amount) 
-				FROM 
-					`tabGL Entry` 
-				WHERE 
-					account=%s and posting_date>=%s and posting_date<=%s""",
+	return frappe.db.sql(""" 
+				SELECT sum(debit_amount) - sum(credit_amount) 
+				FROM `tabGL Entry` 
+				WHERE account=%s and posting_date>=%s and posting_date<=%s""",
 				(account, date[0], date[1]))[0][0]
 
+
+def get_profit_loss_total_amount(data, period_key):
+	debit, credit, l_credit = 0,0,0
+	for d in data:
+		if d and d['account'] == 'Total Asset (Debit)':
+			debit = d[period_key]
+		elif d and d['account'] == 'Total Liability (Credit)':
+			l_credit = d[period_key]
+			credit = d[period_key]
+
+
+	return debit, l_credit
+
+
+def get_chart_data(asset, liability, period_key):
+	labels = [period_key]
+
+	asset_data, liability_data, equity_data = [], [], []
+
+	if asset != 0:
+		asset_data.append(asset)
+	if liability != 0:
+		liability_data.append(liability)
+
+	datasets = []
+	if asset_data:
+		datasets.append({'name': 'Assets', 'values': asset_data})
+	if liability_data:
+		datasets.append({'name': 'Liabilities', 'values': liability_data})
+	
+	chart = {
+		"data": {
+			'labels': labels,
+			'datasets': datasets
+		}
+	}
+
+	chart["type"] = "bar"
+	return chart
